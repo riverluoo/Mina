@@ -50,5 +50,6 @@ public class MyServerHandler extends IoHandlerAdapter {
     @Override
     public void messageSent(IoSession session, Object message) throws Exception {
         System.out.println("myhandle : session : 发送");
+        session.close();
     }
 }

@@ -33,6 +33,7 @@ public class MinaServer {
                             LineDelimiter.MAC.getValue())
             ));
 
+            acceptor.getFilterChain().addFirst("filter",new MyClinetFilter());
             acceptor.getSessionConfig().setReadBufferSize(1024);
             acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
             acceptor.setHandler(new MyServerHandler());

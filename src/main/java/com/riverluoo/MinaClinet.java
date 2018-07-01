@@ -35,12 +35,15 @@ public class MinaClinet {
                         LineDelimiter.MAC.getValue(),
                         LineDelimiter.MAC.getValue())
         ));
+
+        connector.getFilterChain().addFirst("filter",new MyClinetFilter());
+
         connector.setHandler(new MyClinetHandler());
         ConnectFuture future = connector.connect(new InetSocketAddress(host, port));
         future.awaitUninterruptibly();
 
         session=future.getSession();
-        session.write("hello");
+        session.write("hello2");
         session.getCloseFuture().awaitUninterruptibly();
 
         connector.dispose();
