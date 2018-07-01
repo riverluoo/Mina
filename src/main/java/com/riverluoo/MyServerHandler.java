@@ -11,7 +11,7 @@ import java.util.Date;
  * @author: wangyang
  * @since: 下午5:44 2018/7/1
  */
-public class MyHandler extends IoHandlerAdapter {
+public class MyServerHandler extends IoHandlerAdapter {
 
 
     @Override

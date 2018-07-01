@@ -35,7 +35,7 @@ public class MinaServer {
 
             acceptor.getSessionConfig().setReadBufferSize(1024);
             acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, 10);
-            acceptor.setHandler(new MyHandler());
+            acceptor.setHandler(new MyServerHandler());
 
             acceptor.bind(new InetSocketAddress(PORT));
         } catch (IOException e) {
