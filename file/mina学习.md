@@ -36,5 +36,47 @@ IOSessionConfig 可以提供连接信息的描述，读缓冲区的设置，读�
 
 通过NioSocketAcceptor(int processorCount) ，NioSocketConnector(int processorCount) 构造函数可以指定多线程的个数
 
+## 7: IOBuffer 常用方法
+
+基于NIO的ByteBuffer,可以操作缓冲区中数据，包括基本数据类型，和字节数组，本质是一个可以动态扩展的Byte数组
+
+IOBuffer的索引属性
+
+Capacity: 代表当前缓冲区的大小
+
+Position: 可以理解为当前的位置，也可以是下一个可读数据单元的位置，（Position<=Capacity）的时候可以完成数据的读写
+
+Limit ：下一个不可读写缓冲区单元的位置(Limit <=Capacity)
+
+flip() : 让limit=position,position=0,为读取缓冲区数据做好准备
+
+hasRemaining() : 缓冲区是否有数据，position<=limit 
+
+Remaining () : 返回int ,返回缓冲区可读性数据的大小，limit-position
+
+reset() : 清空数据
+
+clear() : 数据覆盖 ；使position=0,重新开始读
+
+## 8 ：自定义编码器，解码器
+
+> #### 自定义编解码工厂，实现ProtocolCodecFactory接口
+>
+> #### 自定义解码器 ，实现ProtocolDecoder接口
+>
+> #### 自定义解码器, 实现ProtocolEncoder接口
+
+## 9 常用自定义协议的方式
+
+> #### 定长的方式 aa,bb,rf
+>
+> #### 定界符 hello|word|cc 会出现黏包 半包
+>
+> #### 自定义协议包 包头+包体
+>
+> 
+
+
+
 
 
