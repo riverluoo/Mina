@@ -44,6 +44,7 @@ public class MyServerHandler extends IoHandlerAdapter {
         String msg= message.toString();
         Date date = new Date();
         System.out.println("myhandle : 接收 ：" + msg);
+        // test
         session.write(date);
     }
 
